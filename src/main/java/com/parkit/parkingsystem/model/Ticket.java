@@ -1,61 +1,60 @@
 package com.parkit.parkingsystem.model;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class Ticket {
     private int id;
     private ParkingSpot parkingSpot;
     private String vehicleRegNumber;
     private double price;
-    private Date inTime;
-    private Date outTime;
+    private Calendar inTime;
+    private Calendar outTime;
 
     public int getId() {
-        return id;
+	return id;
     }
 
     public void setId(int id) {
-        this.id = id;
+	this.id = id;
     }
 
     public ParkingSpot getParkingSpot() {
-        return parkingSpot;
+	return parkingSpot;
     }
 
     public void setParkingSpot(ParkingSpot parkingSpot) {
-        this.parkingSpot = parkingSpot;
+	this.parkingSpot = parkingSpot;
     }
 
     public String getVehicleRegNumber() {
-        return vehicleRegNumber;
+	return vehicleRegNumber;
     }
 
     public void setVehicleRegNumber(String vehicleRegNumber) {
-        this.vehicleRegNumber = vehicleRegNumber;
+	this.vehicleRegNumber = vehicleRegNumber;
     }
 
     public double getPrice() {
-        return price;
+	return price;
     }
 
     public void setPrice(double price) {
-        this.price = price;
+	this.price = price;
     }
 
-    public Date getInTime() {
-        return inTime;
+    public Calendar getInTime() {
+	return inTime;
     }
 
-    public void setInTime(Date inTime) {
-        this.inTime = inTime;
+    public void setInTime(Calendar inTime) {
+	this.inTime = inTime;
     }
 
-    public Date getOutTime() {
-        return outTime;
+    public Calendar getOutTime() {
+	return outTime;
     }
 
-    public void setOutTime(Date outTime) {
-        this.outTime = outTime;
+    public void setOutTime(Calendar outTime) {
+	this.outTime = outTime;
     }
 }
