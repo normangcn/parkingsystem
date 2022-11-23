@@ -7,6 +7,8 @@ import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
 import com.parkit.parkingsystem.service.ParkingService;
 import com.parkit.parkingsystem.util.InputReaderUtil;
+
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,7 +39,7 @@ public class ParkingServiceTest {
 	    ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
 	    Ticket ticket = new Ticket();
 	    Calendar inTime = Calendar.getInstance();
-	    inTime.setTimeInMillis( System.currentTimeMillis() - (60 * 60 * 1000));
+	    inTime.setTimeInMillis(System.currentTimeMillis() - (60 * 60 * 1000));
 	    ticket.setInTime(inTime);
 	    ticket.setParkingSpot(parkingSpot);
 	    ticket.setVehicleRegNumber("ABCDEF");
@@ -58,5 +60,4 @@ public class ParkingServiceTest {
 	parkingService.processExitingVehicle();
 	verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
     }
-
 }
