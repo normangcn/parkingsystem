@@ -9,6 +9,7 @@ public class Ticket {
     private double price;
     private Calendar inTime;
     private Calendar outTime;
+    private boolean isRecuring;
 
     public int getId() {
 	return id;
@@ -56,5 +57,13 @@ public class Ticket {
 
     public void setOutTime(Calendar outTime) {
 	this.outTime = outTime;
+    }
+    
+    public boolean getIsRecuring() {
+	return isRecuring;
+    }
+    
+    public void setIsRecuring(boolean isRecuring) {
+	this.isRecuring = isRecuring;
     }
 }
