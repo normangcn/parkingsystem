@@ -10,6 +10,7 @@ public class Ticket {
     private Calendar inTime;
     private Calendar outTime;
     private boolean isRecuring;
+    private boolean isExistingUser;
 
     public int getId() {
 	return id;
@@ -65,5 +66,13 @@ public class Ticket {
     
     public void setIsRecuring(boolean isRecuring) {
 	this.isRecuring = isRecuring;
+    }
+    
+    public boolean getIsExistingUser() {
+	return isExistingUser;
+    }
+    
+    public void setIsExistingUser(boolean isExistingUser) {
+	this.isExistingUser = isExistingUser;
     }
 }

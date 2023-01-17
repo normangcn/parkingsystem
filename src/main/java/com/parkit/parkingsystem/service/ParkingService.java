@@ -29,13 +29,13 @@ public class ParkingService {
     
     public boolean verifyExistingVehicle() throws Exception
     {
-	boolean exists = false;
-	ticketDAO.getTicket(getVehichleRegNumber());
-	String vehicleRegIsPresent = getVehichleRegNumber();
-	if(vehicleRegIsPresent != null) {
-	    exists = true;
+	boolean isExistingUser= false;
+	Ticket t = ticketDAO.getTicket(getVehichleRegNumber());	
+	if(t != null) {
+	    isExistingUser= true;
+	    
 	}
-	return exists;
+	return isExistingUser;
     }
 
     public void processIncomingVehicle() {
@@ -51,11 +51,11 @@ public class ParkingService {
                 //ticket.setId(ticketID);
                 ticket.setParkingSpot(parkingSpot);
                 ticket.setVehicleRegNumber(vehicleRegNumber);
-                boolean exists = verifyExistingVehicle();
-                if (exists == true)
+                if (verifyExistingVehicle())
                 {
                     System.out.println("Welcome back! As a recuring user of our parking lot, you'll benefit from a 5% discount.");
-                    ticket.setIsRecuring(exists);
+                    ticket.setIsExistingUser(verifyExistingVehicle());
+                    
                 }
                 ticket.setPrice(0);
                 ticket.setInTime(inTime);

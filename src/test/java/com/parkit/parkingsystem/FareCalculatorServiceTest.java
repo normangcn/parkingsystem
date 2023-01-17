@@ -130,18 +130,17 @@ public class FareCalculatorServiceTest {
     @Test
     public void fivePercentDiscountReturningCustomer() {
 	//when registration number already exists in DB on exit apply 5% discount on fare
-	Ticket secondTicket = new Ticket();
-	secondTicket.setVehicleRegNumber("AEIOU");
-	secondTicket.setIsRecuring(true);
-	Calendar secondInTime = Calendar.getInstance();
-	secondInTime.setTimeInMillis(System.currentTimeMillis() - (60 * 60 * 1000));
-	Calendar secondOutTime = Calendar.getInstance();
+	Ticket fivePercentTicket = new Ticket();
+	fivePercentTicket.setVehicleRegNumber("AEIOU");
+	fivePercentTicket.setIsExistingUser(true);
+	Calendar inTime = Calendar.getInstance();
+	inTime.setTimeInMillis(System.currentTimeMillis() - (60 * 60 * 1000));
+	Calendar outTime = Calendar.getInstance();
 	ParkingSpot secondParkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
-	
-	secondTicket.setInTime(secondInTime);
-	secondTicket.setOutTime(secondOutTime);
-	secondTicket.setParkingSpot(secondParkingSpot);	
-	fareCalculatorService.calculateFare(secondTicket);
-	assertEquals((Fare.CAR_RATE_PER_HOUR - (Fare.CAR_RATE_PER_HOUR * 0.05)),secondTicket.getPrice());
+	fivePercentTicket.setInTime(inTime);
+	fivePercentTicket.setOutTime(outTime);
+	fivePercentTicket.setParkingSpot(secondParkingSpot);	
+	fareCalculatorService.calculateFare(fivePercentTicket);
+	assertEquals((Fare.CAR_RATE_PER_HOUR - (Fare.CAR_RATE_PER_HOUR * 0.05)),fivePercentTicket.getPrice());
     }
 }

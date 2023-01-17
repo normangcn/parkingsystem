@@ -33,6 +33,7 @@ public class TicketDAO {
             ps.setDouble(3, ticket.getPrice());
             ps.setTimestamp(4, new Timestamp(ticket.getInTime().getTimeInMillis()));
             ps.setTimestamp(5, (ticket.getOutTime() == null)?null: (new Timestamp(ticket.getOutTime().getTimeInMillis())) );
+            ps.setBoolean(6, ticket.getIsExistingUser());
             return ps.execute();
         }catch (Exception ex){
             logger.error("Error fetching next available slot",ex);
@@ -69,6 +70,7 @@ public class TicketDAO {
                 Calendar outTime = Calendar.getInstance();
                 outTime.setTimeInMillis(outTimeTimeStampQuery.getTime());
                 ticket.setOutTime(outTime);
+                ticket.setIsExistingUser(rs.getBoolean(6));
             }
             dataBaseConfig.closeResultSet(rs);
             dataBaseConfig.closePreparedStatement(ps);

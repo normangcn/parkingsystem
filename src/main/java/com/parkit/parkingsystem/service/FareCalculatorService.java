@@ -14,11 +14,11 @@ public class FareCalculatorService {
 
 	Calendar inHour = ticket.getInTime();
 	Calendar outHour = ticket.getOutTime();
-	boolean isFivePercentElligible = ticket.getIsRecuring();
+	boolean isFivePercentElligible = ticket.getIsExistingUser();
 	long inHourMillis = inHour.getTimeInMillis();
 	long outHourMillis = outHour.getTimeInMillis();
 	long duration = outHourMillis - inHourMillis;
-	if(isFivePercentElligible == true) {
+	if(isFivePercentElligible) {
 	    		switch (ticket.getParkingSpot().getParkingType()) {
 		case CAR: {
 		    ticket.setPrice(((duration * Fare.CAR_RATE_PER_HOUR) / 3600000)-(((duration * Fare.CAR_RATE_PER_HOUR) / 3600000)*0.05));
