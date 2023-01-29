@@ -115,7 +115,8 @@ public class FareCalculatorServiceTest {
     @Test
     public void calculateFareCarLessThanThirtyMinutes() {
 	Calendar inTime = Calendar.getInstance();
-	inTime.setTimeInMillis(System.currentTimeMillis() - (29 * 60 * 1000));// under 30 minutes parking time should give
+	inTime.setTimeInMillis(System.currentTimeMillis() - (29 * 60 * 1000));// under 30 minutes parking time should
+									      // give
 									      // 0$ parking fare
 	Calendar outTime = Calendar.getInstance();
 	ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
@@ -124,8 +125,9 @@ public class FareCalculatorServiceTest {
 	ticket.setOutTime(outTime);
 	ticket.setParkingSpot(parkingSpot);
 	fareCalculatorService.calculateFare(ticket);
-	assertEquals(( 0 * Fare.CAR_RATE_PER_HOUR), ticket.getPrice());
+	assertEquals((0 * Fare.CAR_RATE_PER_HOUR), ticket.getPrice());
     }
+
     @Test
     public void calculateFareCarWithMoreThanADayParkingTime() {
 	Calendar inTime = Calendar.getInstance();
@@ -143,7 +145,8 @@ public class FareCalculatorServiceTest {
 
     @Test
     public void fivePercentDiscountReturningCustomer() {
-	//when registration number already exists in DB on exit apply 5% discount on fare
+	// when registration number already exists in DB on exit apply 5% discount on
+	// fare
 	Ticket fivePercentTicket = new Ticket();
 	fivePercentTicket.setVehicleRegNumber("AEIOU");
 	fivePercentTicket.setIsExistingUser(true);
@@ -153,8 +156,8 @@ public class FareCalculatorServiceTest {
 	ParkingSpot secondParkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
 	fivePercentTicket.setInTime(inTime);
 	fivePercentTicket.setOutTime(outTime);
-	fivePercentTicket.setParkingSpot(secondParkingSpot);	
+	fivePercentTicket.setParkingSpot(secondParkingSpot);
 	fareCalculatorService.calculateFare(fivePercentTicket);
-	assertEquals((Fare.CAR_RATE_PER_HOUR - (Fare.CAR_RATE_PER_HOUR * 0.05)),fivePercentTicket.getPrice());
+	assertEquals((Fare.CAR_RATE_PER_HOUR - (Fare.CAR_RATE_PER_HOUR * 0.05)), fivePercentTicket.getPrice());
     }
 }

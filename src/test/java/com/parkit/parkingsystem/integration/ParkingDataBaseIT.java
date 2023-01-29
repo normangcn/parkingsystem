@@ -27,37 +27,37 @@ public class ParkingDataBaseIT {
     private static InputReaderUtil inputReaderUtil;
 
     @BeforeAll
-    private static void setUp() throws Exception{
-        parkingSpotDAO = new ParkingSpotDAO();
-        parkingSpotDAO.dataBaseConfig = dataBaseTestConfig;
-        ticketDAO = new TicketDAO();
-        ticketDAO.dataBaseConfig = dataBaseTestConfig;
-        dataBasePrepareService = new DataBasePrepareService();
+    private static void setUp() throws Exception {
+	parkingSpotDAO = new ParkingSpotDAO();
+	parkingSpotDAO.dataBaseConfig = dataBaseTestConfig;
+	ticketDAO = new TicketDAO();
+	ticketDAO.dataBaseConfig = dataBaseTestConfig;
+	dataBasePrepareService = new DataBasePrepareService();
     }
 
     @BeforeEach
     private void setUpPerTest() throws Exception {
-        when(inputReaderUtil.readSelection()).thenReturn(1);
-        dataBasePrepareService.clearDataBaseEntries();
+	when(inputReaderUtil.readSelection()).thenReturn(1);
+	dataBasePrepareService.clearDataBaseEntries();
     }
 
     @AfterAll
-    private static void tearDown(){
+    private static void tearDown() {
 
     }
 
     @Test
-    public void testParkingACar() throws Exception{
+    public void testParkingACar() throws Exception {
 	when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("FEDCBA");
-        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-        parkingService.processIncomingVehicle();
+	ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+	parkingService.processIncomingVehicle();
     }
 
     @Test
-    public void testParkingLotExit() throws Exception{
+    public void testParkingLotExit() throws Exception {
 	testParkingACar();
-        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-        parkingService.processExitingVehicle();
+	ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+	parkingService.processExitingVehicle();
     }
 
 }

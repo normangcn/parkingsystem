@@ -59,19 +59,19 @@ public class Ticket {
     public void setOutTime(Calendar outTime) {
 	this.outTime = outTime;
     }
-    
+
     public boolean getIsRecuring() {
 	return isRecuring;
     }
-    
+
     public void setIsRecuring(boolean isRecuring) {
 	this.isRecuring = isRecuring;
     }
-    
+
     public boolean getIsExistingUser() {
 	return isExistingUser;
     }
-    
+
     public void setIsExistingUser(boolean isExistingUser) {
 	this.isExistingUser = isExistingUser;
     }
