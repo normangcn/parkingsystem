@@ -113,6 +113,20 @@ public class FareCalculatorServiceTest {
     }
 
     @Test
+    public void calculateFareCarLessThanThirtyMinutes() {
+	Calendar inTime = Calendar.getInstance();
+	inTime.setTimeInMillis(System.currentTimeMillis() - (29 * 60 * 1000));// under 30 minutes parking time should give
+									      // 0$ parking fare
+	Calendar outTime = Calendar.getInstance();
+	ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
+
+	ticket.setInTime(inTime);
+	ticket.setOutTime(outTime);
+	ticket.setParkingSpot(parkingSpot);
+	fareCalculatorService.calculateFare(ticket);
+	assertEquals(( 0 * Fare.CAR_RATE_PER_HOUR), ticket.getPrice());
+    }
+    @Test
     public void calculateFareCarWithMoreThanADayParkingTime() {
 	Calendar inTime = Calendar.getInstance();
 	inTime.setTimeInMillis(System.currentTimeMillis() - (24 * 60 * 60 * 1000));// 24 hours parking time should give
