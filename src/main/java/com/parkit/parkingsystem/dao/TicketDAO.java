@@ -47,8 +47,8 @@ public class TicketDAO {
     public Ticket getTicket(String vehicleRegNumber) {
 	Connection con = null;
 	Ticket ticket = null;
-	Timestamp inTimeTimeStampQuery = new Timestamp(System.currentTimeMillis());
-	Timestamp outTimeTimeStampQuery = new Timestamp(System.currentTimeMillis());
+	Timestamp inTimeTimeStampQuery;
+	Timestamp outTimeTimeStampQuery;
 	try {
 	    con = dataBaseConfig.getConnection();
 	    PreparedStatement ps = con.prepareStatement(DBConstants.GET_TICKET);

@@ -46,18 +46,24 @@ public class ParkingDataBaseIT {
 
     }
 
-    @Test
-    public void testParkingACar() throws Exception {
-	when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("FEDCBA");
-	ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-	parkingService.processIncomingVehicle();
-    }
+    
+      @Test public void testParkingACar() throws Exception {
+      when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("FEDCBA");
+      ParkingService parkingService = new ParkingService(inputReaderUtil,
+      parkingSpotDAO, ticketDAO); parkingService.processIncomingVehicle(); 
+      //add validation of ticket's existence in db 
+      
+      }
+     
 
     @Test
     public void testParkingLotExit() throws Exception {
-	testParkingACar();
-	ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-	parkingService.processExitingVehicle();
+	when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("BANANA");
+	ParkingService parkingServiceEntry = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+	ParkingService parkingServiceExit = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+	parkingServiceEntry.processIncomingVehicle();
+	parkingServiceExit.processExitingVehicle();
+	//add validation of ticket extraction from db
     }
 
 }

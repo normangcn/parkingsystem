@@ -131,8 +131,8 @@ public class FareCalculatorServiceTest {
     @Test
     public void calculateFareCarWithMoreThanADayParkingTime() {
 	Calendar inTime = Calendar.getInstance();
-	inTime.setTimeInMillis(System.currentTimeMillis() - (24 * 60 * 60 * 1000));// 24 hours parking time should give
-										   // 24 * parking fare per hour
+	inTime.setTimeInMillis(System.currentTimeMillis() - (25 * 60 * 60 * 1000));// 25 hours parking time should give
+										   // 25 * parking fare per hour
 	Calendar outTime = Calendar.getInstance();
 	ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
 
@@ -140,7 +140,7 @@ public class FareCalculatorServiceTest {
 	ticket.setOutTime(outTime);
 	ticket.setParkingSpot(parkingSpot);
 	fareCalculatorService.calculateFare(ticket);
-	assertEquals((24 * Fare.CAR_RATE_PER_HOUR), ticket.getPrice());
+	assertEquals((25 * Fare.CAR_RATE_PER_HOUR), ticket.getPrice());
     }
 
     @Test
