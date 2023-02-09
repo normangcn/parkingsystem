@@ -13,6 +13,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -41,6 +44,7 @@ public class ParkingDataBaseIT {
 	dataBasePrepareService.clearDataBaseEntries();
     }
 
+
     @AfterAll
     private static void tearDown() {
 
@@ -49,10 +53,10 @@ public class ParkingDataBaseIT {
     
       @Test public void testParkingACar() throws Exception {
       when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("FEDCBA");
-      ParkingService parkingService = new ParkingService(inputReaderUtil,
-      parkingSpotDAO, ticketDAO); parkingService.processIncomingVehicle(); 
-      //add validation of ticket's existence in db 
-      
+      ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+      parkingService.processIncomingVehicle(); 
+      assertNotNull(ticketDAO.getTicket("FEDCBA"));
+      assertFalse(ticketDAO.getTicket("FEDCBA").getParkingSpot().isAvailable());
       }
      
 
@@ -63,7 +67,8 @@ public class ParkingDataBaseIT {
 	ParkingService parkingServiceExit = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
 	parkingServiceEntry.processIncomingVehicle();
 	parkingServiceExit.processExitingVehicle();
-	//add validation of ticket extraction from db
+	assertNotNull(ticketDAO.getTicket("BANANA").getOutTime());
+	assertNotNull(ticketDAO.getTicket("BANANA").getPrice());
+	
     }
-
 }
