@@ -1463,3 +1463,63 @@ java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check th
 2023-02-15 02:34:53.436 [main] INFO  DataBaseTestConfig - Closing Result Set
 2023-02-15 02:34:53.436 [main] INFO  DataBaseTestConfig - Closing Prepared Statement
 2023-02-15 02:34:53.437 [main] INFO  DataBaseTestConfig - Closing DB connection
+2023-02-15 01:58:21.733 [main] INFO  App - Initializing Parking System
+2023-02-15 01:58:21.735 [main] INFO  InteractiveShell - App initialized!!!
+2023-02-15 01:58:27.857 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 01:58:28.085 [main] INFO  DataBaseConfig - Closing Result Set
+2023-02-15 01:58:28.085 [main] INFO  DataBaseConfig - Closing Prepared Statement
+2023-02-15 01:58:28.087 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 01:58:28.087 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 01:58:28.118 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 01:58:28.119 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 01:58:28.136 [main] INFO  DataBaseConfig - Closing Prepared Statement
+2023-02-15 01:58:28.137 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 01:59:07.601 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 01:59:07.616 [main] INFO  DataBaseConfig - Closing Result Set
+2023-02-15 01:59:07.616 [main] INFO  DataBaseConfig - Closing Prepared Statement
+2023-02-15 01:59:07.617 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 01:59:07.617 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 01:59:07.635 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 01:59:07.635 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 01:59:07.647 [main] INFO  DataBaseConfig - Closing Prepared Statement
+2023-02-15 01:59:07.647 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 04:03:20.027 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540) ~[?:1.8.0_352]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readSelection(InputReaderUtil.java:15) [classes/:?]
+	at com.parkit.parkingsystem.service.InteractiveShell.loadInterface(InteractiveShell.java:25) [classes/:?]
+	at com.parkit.parkingsystem.App.main(App.java:12) [classes/:?]
+2023-02-15 02:28:50.835 [main] INFO  App - Initializing Parking System
+2023-02-15 02:28:50.837 [main] INFO  InteractiveShell - App initialized!!!
+2023-02-15 02:28:57.756 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 02:28:57.966 [main] INFO  DataBaseConfig - Closing Result Set
+2023-02-15 02:28:57.967 [main] INFO  DataBaseConfig - Closing Prepared Statement
+2023-02-15 02:28:57.967 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 02:28:57.967 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 02:28:57.991 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 02:28:57.991 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 02:28:58.006 [main] INFO  DataBaseConfig - Closing Prepared Statement
+2023-02-15 02:28:58.007 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 04:03:20.044 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540) ~[?:1.8.0_352]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readSelection(InputReaderUtil.java:15) [classes/:?]
+	at com.parkit.parkingsystem.service.InteractiveShell.loadInterface(InteractiveShell.java:25) [classes/:?]
+	at com.parkit.parkingsystem.App.main(App.java:12) [classes/:?]
+2023-02-15 02:35:04.875 [main] INFO  App - Initializing Parking System
+2023-02-15 02:35:04.876 [main] INFO  InteractiveShell - App initialized!!!
+2023-02-15 02:35:18.072 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 02:35:18.274 [main] INFO  DataBaseConfig - Closing Result Set
+2023-02-15 02:35:18.274 [main] INFO  DataBaseConfig - Closing Prepared Statement
+2023-02-15 02:35:18.275 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 02:35:18.275 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 02:35:18.298 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 02:35:18.299 [main] INFO  DataBaseConfig - Create DB connection
+2023-02-15 02:35:18.311 [main] INFO  DataBaseConfig - Closing Prepared Statement
+2023-02-15 02:35:18.311 [main] INFO  DataBaseConfig - Closing DB connection
+2023-02-15 04:03:20.062 [main] ERROR InputReaderUtil - Error while reading user input from Shell
+java.util.NoSuchElementException: No line found
+	at java.util.Scanner.nextLine(Scanner.java:1540) ~[?:1.8.0_352]
+	at com.parkit.parkingsystem.util.InputReaderUtil.readSelection(InputReaderUtil.java:15) [classes/:?]
+	at com.parkit.parkingsystem.service.InteractiveShell.loadInterface(InteractiveShell.java:25) [classes/:?]
+	at com.parkit.parkingsystem.App.main(App.java:12) [classes/:?]
